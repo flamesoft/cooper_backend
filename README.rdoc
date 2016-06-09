@@ -1,11 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the backend for Cooper js app.
+It handles the authentication part and saves data into a postgres
+database.
 
-Things you may want to cover:
-
-* Ruby version
+* Ruby version 2.3.0
 
 * System dependencies
 
@@ -20,9 +19,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
