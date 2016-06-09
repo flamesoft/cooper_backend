@@ -18,13 +18,20 @@ Bundler.require(*Rails.groups)
 module RailsCooper
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
-    
+
     #This will allow GET, POST, PUT and DELETE requests from any origin on any resource.
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
         resource '*', headers: :any, methods: [:get, :put, :delete, :post]
       end
+    end
+
+    # Disable generation of helpers, javascripts, css, and view specs
+    config.generators do |generate|
+     generate.helper false
+     generate.assets false
+     generate.view_specs false
     end
   end
 end
