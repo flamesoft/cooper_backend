@@ -5,8 +5,9 @@ Rails.application.routes.draw do
       resources :ping, only: [:index], constraints: {format: /(json)/}
     end
     namespace :v1 do
-     mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
-   end
+      mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
+      post 'data', controller: :performance_data, action: :create, as: :create
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
