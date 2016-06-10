@@ -15,6 +15,13 @@ describe 'Performance Data' do
       expect(response_json['entries'].count).to eq 5
     end
 
+    it 'returns a collection for the current user' do
+      get '/api/v1/data/', {}, headers.merge!(credentials)
+      response_json['entries'].each do |entry|
+        expect(entry['user_id']).to eq user.id
+      end
+    end
+
     it 'creates a data entry' do
       post '/api/v1/data/', { performance_data: { data: { message: 'Average' } } }, headers.merge!(credentials)
       entry = PerformanceData.last
