@@ -13,7 +13,9 @@ class Api::V1::PerformanceDataController < ApplicationController
       render json: { error: @data.errors.full_messages }
     end
   end
+
   private
+
   def performance_data_params
     params.require(:performance_data).permit!
   end
