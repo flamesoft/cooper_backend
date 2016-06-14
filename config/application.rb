@@ -24,11 +24,7 @@ module RailsCooper
       allow do
         origins '*'
         # resource '*', headers: :any, methods: [:get, :put, :delete, :post]
-        resource '*',
-          headers: :any,
-             methods: [:get, :post, :delete, :put, :options, :head],
-             expose: %w(access-token expiry token-type uid client),
-             max_age: 0
+        resource '*', headers: :any, methods: [:get, :post, :delete, :put, :options, :head], expose: %w(access-token expiry token-type uid client), max_age: 0
       end
     end
 
